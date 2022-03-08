@@ -32,7 +32,7 @@ passport.use(jwtStrategy);
 
 // routes
 app.use("/media", express.static(path.join(__dirname, "media")));
-app.use("/user", userRoutes);
+app.use("/api/user", userRoutes);
 
 // Error handiling
 app.use((err, req, res, next) => {

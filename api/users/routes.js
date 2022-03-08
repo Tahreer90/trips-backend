@@ -1,13 +1,13 @@
 const express = require("express");
-const { singup, getUsers, signin } = require("./controller");
+const { signup, getUsers, signin } = require("./controller");
 const passport = require("passport");
 
 const router = express.Router();
 
 router.get("/", getUsers);
-router.post("/singup", singup);
+router.post("/signup", signup);
 router.post(
-  "/singin",
+  "/signin",
   passport.authenticate("local", { session: false }),
   signin
 );
