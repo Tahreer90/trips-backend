@@ -8,6 +8,7 @@ const { localStrategy } = require("./middleware/passport");
 const { jwtStrategy } = require("./middleware/passport");
 // routes import
 const userRoutes = require("./api/users/routes");
+const tripRoutes = require("./api/trip/routes");
 
 // setup
 const app = express();
@@ -33,6 +34,7 @@ passport.use(jwtStrategy);
 // routes
 app.use("/media", express.static(path.join(__dirname, "media")));
 app.use("/api/user", userRoutes);
+app.use("/api/trip", tripRoutes);
 
 // Error handiling
 app.use((err, req, res, next) => {
