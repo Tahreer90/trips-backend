@@ -9,6 +9,7 @@ const { jwtStrategy } = require("./middleware/passport");
 // routes import
 const userRoutes = require("./api/users/routes");
 const tripRoutes = require("./api/trip/routes");
+const profileRoutes = require("./api/Profile/routes");
 
 // setup
 const app = express();
@@ -35,6 +36,7 @@ passport.use(jwtStrategy);
 app.use("/media", express.static(path.join(__dirname, "media")));
 app.use("/api/user", userRoutes);
 app.use("/api/trip", tripRoutes);
+app.use("/api/profile", profileRoutes);
 
 // Error handiling
 app.use((err, req, res, next) => {

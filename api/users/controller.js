@@ -1,5 +1,6 @@
 const Users = require("../../models/User");
-const Trip = require("../../models/Trips");
+const Trip = require("../../models/Trip");
+const Profile = require("../../models/Profile");
 
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
@@ -34,6 +35,8 @@ exports.signup = async (req, res, next) => {
     req.body.password = await bcrypt.hash(password, saltRounds);
 
     const newUser = await Users.create(req.body);
+    // req.body.User = newUser._id;
+    await Profile.create(req.body);
 
     const payLoad = {
       _id: newUser._id,
