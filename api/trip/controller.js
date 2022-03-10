@@ -1,4 +1,4 @@
-const Trip = require("../../models/Trips");
+const Trip = require("../../models/Trip");
 
 exports.fetchtrip = async (tripId, next) => {
   try {
